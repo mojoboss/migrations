@@ -7,6 +7,8 @@ CREATE TYPE users_db.user_response AS (
     first_name VARCHAR(64),
     last_name VARCHAR (64),
     email VARCHAR(256),
+    user_status VARCHAR(64),
+    user_password VARCHAR(64),
     date_created TIMESTAMP
 );
 -- +goose StatementEnd
@@ -17,8 +19,8 @@ RETURNS users_db.user_response AS $$
 DECLARE
     response users_db.user_response;
 BEGIN
-    SELECT first_name, last_name, email, date_created INTO
-    response.first_name, response.last_name, response.email, response.date_created
+    SELECT first_name, last_name, email, user_status, user_password, date_created INTO
+    response.first_name, response.last_name, response.email, response.user_status, response.user_password, response.date_created
     FROM users_db.users WHERE id = userid;
     RETURN response;
 END;
