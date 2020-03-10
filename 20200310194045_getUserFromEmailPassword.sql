@@ -16,4 +16,4 @@ $$
 -- +goose Down
 -- SQL section 'Down' is executed when this migration is rolled back
 
-DROP FUNCTION users_db.getUserFromEmailAndPassword(userStatus VARCHAR(64));
+DROP FUNCTION users_db.getUserFromEmailAndPassword(userEmail VARCHAR(64), userPassword VARCHAR(64));
